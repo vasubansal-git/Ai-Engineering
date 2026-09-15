@@ -1,4 +1,4 @@
-from flask import Flask,jsonify
+from flask import Flask,jsonify, request
 
 app = Flask(__name__) # object creation
 
@@ -29,6 +29,29 @@ def get_book(book_id):
             return jsonify(book)
     return jsonify({'error':"book not found"})
 
+
+# route to add a new book
+@app.route('/books', methods=['POST'])
+def add_book():
+    new_book = {
+        "id":request.json['id'],
+        "title":request.json['title'],
+        "author":request.json['author'],
+    }
+
+    books.append(new_book)
+    return jsonify({'message':'Book added successfully'})
+
+# Route to upadate an existing book
+@app.route('/books/<int:book_id>', methods=['PUT'])
+def update_book(book_id):
+    for book in books:
+        if book['id'] == book_id:
+            book['title'] = request.json['title']
+            book['author'] = request.json['author']
+            return jsonify({'message':'Book updated successfully'})
+
+    return jsonify({'Error':'Book not found'})
 
 if __name__ == '__main__':
     app.run(debug=True)
