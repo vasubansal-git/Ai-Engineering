@@ -1,7 +1,8 @@
 from flask import Flask,jsonify
 
-app = Flask(__name__)
+app = Flask(__name__) # object creation
 
+# data
 books = [
     {"id":1, "title":"Book 1", "author":"Author 1"},
     {"id":2, "title":"Book 2", "author":"Author 2"},
@@ -10,6 +11,7 @@ books = [
     {"id":5, "title":"Book 5", "author":"Author 5"},
 ]
 
+# route to home page
 @app.route('/', methods=['GET'])
 def home_page():
     return 'Home page'
