@@ -53,5 +53,15 @@ def update_book(book_id):
 
     return jsonify({'Error':'Book not found'})
 
+# Route to delete a book
+@app.route('/books/<int:book_id>', methods=['DELETE'])
+def delete_book(book_id):
+    for book in books:
+        if book['id'] == book_id:
+            books.remove(book)
+            return jsonify({'message':'Book deleted successfully'})
+
+    return jsonify({'Error':'Book not found'})
+
 if __name__ == '__main__':
     app.run(debug=True)
