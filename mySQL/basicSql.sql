@@ -15,8 +15,15 @@ CREATE TABLE users (
 # fetch the table
 SELECT * FROM users;
 
-# fetch columns
+# fetch specific columns
 SELECT id, email FROM users;
 
 # drop the database - delete the entire database
-DROP DATABASE startersql;
+# DROP DATABASE startersql;
+
+# Renaming of table
+RENAME TABLE users to programmers;
+SELECT * FROM programmers;
+
+RENAME TABLE programmers TO users;
+SELECT * FROM users;
