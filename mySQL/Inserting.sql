@@ -10,3 +10,5 @@ INSERT INTO users (name, gender, email, date_of_birth) VALUES
 ('ankit', 'Male', 'ankit890@ankit.com', '2006-08-20');
 
 SELECT * FROM users;
+
+DROP DATABASE startersql;
