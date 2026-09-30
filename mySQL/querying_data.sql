@@ -25,3 +25,15 @@ SELECT * FROM users WHERE date_of_birth BETWEEN '1999-10-10' AND '2006-10-10';
 
 -- gender
 SELECT * FROM users WHERE gender in ('Male', 'Female');
+
+-- AND or OR
+SELECT * FROM users WHERE gender="Male" AND salary<70000;
+SELECT * FROM users WHERE gender="Male" OR salary>55000 ORDER BY date_of_birth ASC;
+SELECT * FROM users WHERE gender="Male" OR salary>55000 ORDER BY date_of_birth DESC;
+
+-- how much rows you want to fetch?
+SELECT * FROM users WHERE gender="Male" OR salary>55000 ORDER BY date_of_birth DESC LIMIT 5;
+
+-- practice
+SELECT * FROM users ORDER BY salary DESC;
+SELECT * FROM users WHERE salary BETWEEN 50000 AND 70000 ORDER BY salary DESC;
